@@ -1,0 +1,15 @@
+.card {
+  width: 300px;
+  border: 1px solid #80808057;
+  box-sizing: border-box;
+  padding: 10px;
+  box-shadow: 5px 5px 10px #0000008c;
+  cursor: pointer;
+}
+
+.cardImg {
+  width: 100%;
+}
+
+.cardTitle {
+}

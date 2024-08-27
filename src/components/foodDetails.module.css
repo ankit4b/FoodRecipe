@@ -1,0 +1,12 @@
+.foodDetailsContainer {
+  padding: 1rem;
+}
+
+.title {
+  background: #ff634729;
+  padding: 0.5rem;
+}
+
+.mainImage {
+  width: 300px;
+}

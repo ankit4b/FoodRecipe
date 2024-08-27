@@ -1,0 +1,15 @@
+.appContainer {
+}
+
+.bodySection {
+  display: flex;
+}
+
+.foodItemsSection {
+  width: 60%;
+}
+
+.foodDescriptionSection {
+  width: 40%;
+  text-align: center;
+}
