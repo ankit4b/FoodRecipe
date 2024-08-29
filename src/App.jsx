@@ -1,27 +1,39 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./app.module.css";
 import FoodList from "./components/FoodList";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import FoodDetails from "./components/FoodDetails";
+import ThemeContext from "./context/ThemeContext";
 
 function App() {
   const [foodList, setFoodList] = useState([]);
   const [foodId, setFoodId] = useState(null);
+  const [mode, setMode] = useState("lightMode");
+
+  const changeTheme = () => {
+    mode === "darkMode" ? setMode("lightMode") : setMode("darkMode");
+  };
+
   return (
     <>
-      <div className={styles.appContainer}>
-        <Header />
-        <Search setFoodList={setFoodList} />
-        <div className={styles.bodySection}>
-          <div className={styles.foodItemsSection}>
-            <FoodList foodList={foodList} setFoodId={setFoodId} />
-          </div>
-          <div className={styles.foodDescriptionSection}>
-            <FoodDetails foodId={foodId} />
+      <ThemeContext.Provider value={mode}>
+        <button onClick={changeTheme}>
+          {mode === "lightMode" ? "Dark Mode" : "Light Mode"}
+        </button>
+        <div className={styles.appContainer}>
+          <Header />
+          <Search setFoodList={setFoodList} />
+          <div className={`${styles.bodySection} ${styles[mode]}`}>
+            <div className={styles.foodItemsSection}>
+              <FoodList foodList={foodList} setFoodId={setFoodId} />
+            </div>
+            <div className={styles.foodDescriptionSection}>
+              <FoodDetails foodId={foodId} />
+            </div>
           </div>
         </div>
-      </div>
+      </ThemeContext.Provider>
     </>
   );
 }

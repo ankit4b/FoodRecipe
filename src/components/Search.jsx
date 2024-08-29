@@ -1,11 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import styles from "./search.module.css";
+import ThemeContext from "../context/ThemeContext";
 
 export default function Search({ setFoodList }) {
   const [searchItem, setSearchItem] = useState("Pasta");
   const secretKey = "091a613635334d82832613f9cbc64f6c";
   const url = "https://api.spoonacular.com/recipes/complexSearch";
   const debounceTimeoutRef = useRef(null);
+  const theme = useContext(ThemeContext);
 
   function debounce(func, delay) {
     return (...args) => {
@@ -45,7 +47,7 @@ export default function Search({ setFoodList }) {
 
   return (
     <>
-      <form className={styles.formContainer}>
+      <form className={`${styles.formContainer} ${styles[theme]}`}>
         <input
           type="text"
           onChange={(e) => setSearchItem(e.target.value)}

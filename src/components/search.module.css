@@ -1,6 +1,11 @@
 .formContainer {
-  margin: 1rem;
+  padding: 1rem;
   text-align: center;
+}
+
+.darkMode {
+  background-color: rgb(33, 30, 30);
+  color: #fff;
 }
 
 input {
@@ -9,4 +14,9 @@ input {
   padding: 0.8rem;
   box-shadow: 2px 5px 10px #0000006b;
   border: 1px solid #80808059;
+}
+
+.darkMode > input {
+  background-color: rgb(255 255 255 / 38%);
+  color: #fff;
 }

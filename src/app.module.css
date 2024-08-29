@@ -3,6 +3,14 @@
 
 .bodySection {
   display: flex;
+  min-height: 80vh;
+  background-color: #fff;
+  color: black;
+}
+
+.darkMode {
+  background-color: rgb(33, 30, 30);
+  color: #fff;
 }
 
 .foodItemsSection {
